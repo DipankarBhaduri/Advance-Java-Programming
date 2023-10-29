@@ -2,10 +2,10 @@ package array;
 
 public class Main {
     public static void main(String[] args) {
-        int[] nums = {2, 3, 4, 10, 6, 7, 9};
-        FindSecondLargest findSecondLargest = new FindSecondLargest();
-        int b = findSecondLargest.secondLargest(nums);
-        System.out.println(b);
+        int[] nums = {0,4,2,1,2};
+        FindDuplicateNumber findDuplicateNumber = new FindDuplicateNumber();
+        int duplicate = findDuplicateNumber.findDuplicate(nums);
+        System.out.println(duplicate);
     }
 }
 
