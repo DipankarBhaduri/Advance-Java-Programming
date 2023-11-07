@@ -7,7 +7,7 @@ import java.util.Queue;
 public class CycleDetection {
     public static void main(String[] args) {
         // Assume the length of graph is 7 and & creating new graph,
-        ArrayList<Edge>[] graph = new ArrayList[5];
+        ArrayList<Edge>[] graph = new ArrayList[4];
         CreateAGraph createAGraph = new CreateAGraph();
         createAGraph.create(graph);
 
