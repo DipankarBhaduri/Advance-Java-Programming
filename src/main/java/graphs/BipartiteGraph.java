@@ -16,43 +16,32 @@ public class BipartiteGraph {
         System.out.println("The graph is Bipartite : "+ans);
     }
     private static boolean checkBipartiteGraphOrNot(ArrayList<Edge>[] graph) {
-        // Creating a boolean array to maintain visited nodes & initializing with default value,
-        boolean[] visited = new boolean[graph.length];
+        // Creating a integer array and initilizing with -1 value with the all indexes,
+        int[] color = new int[graph.length];
         for(int i = 0; i < graph.length; i++) {
-            visited[i] = false;
+            color[i] = -1;
         }
 
         // Using BFS so using Queue Data Structure & adding the first nodes,
         Queue<Integer> queue = new LinkedList<>();
         queue.add(graph[0].get(0).src);
 
-        // Using two sets to check bipartite or Not this graph,
-        Set<Integer> uSet = new HashSet<>();
-        Set<Integer> vSet = new HashSet<>();
-
-        while(!queue.isEmpty()) {
-            int curr = queue.remove();
-            visited[curr] = true;
-
-            for(int i = 0; i < graph[curr].size(); i++) {
-                Edge edge = graph[curr].get(i);
-
-                int dest = edge.dest;
-                if(!uSet.contains(curr) && !vSet.contains(dest)) {
-                    uSet.add(curr);
-                    vSet.add(dest);
-                } else if (uSet.contains(curr) || vSet.contains(curr)) {
-                    if(!uSet.contains(dest) && uSet.contains(curr)){
-                        vSet.add(dest);
-                    } else if (!vSet.contains(dest) && vSet.contains(curr)) {
-                        uSet.add(dest);
-                    } else {
-                        return false;
+        for(int i = 0; i < graph.length; i++) {
+            if(color[i] == -1) {
+                queue.add(i);
+                color[i] = 1; // yellow
+                while (!queue.isEmpty()) {
+                    int curr = queue.remove();
+                    for(int j = 0; j < graph[curr].size(); j++) {
+                        Edge edge = graph[curr].get(j);
+                        if(color[edge.dest] == -1) {
+                            int nextCol = (color[curr] == 1) ? 0 : 1;
+                            queue.add(edge.dest);
+                            color[edge.dest] = nextCol;
+                        } else if (color[edge.dest] == color[curr]) {
+                            return false;
+                        }
                     }
-                }
-
-                if(!visited[dest]) {
-                    queue.add(dest);
                 }
             }
         }
