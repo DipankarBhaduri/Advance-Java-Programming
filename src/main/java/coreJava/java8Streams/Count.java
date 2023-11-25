@@ -1,4 +1,4 @@
-package coreJava.Java8Streams;
+package coreJava.java8Streams;
 import java.util.*;
 public class Count {
     public static void main(String[] args) {

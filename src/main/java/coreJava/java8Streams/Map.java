@@ -1,6 +1,6 @@
-package coreJava.Java8Streams;
+package coreJava.java8Streams;
 
-import coreJava.Java8Streams.utils.IPL;
+import coreJava.java8Streams.utils.IPL;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,2 +1,2 @@
-package coreJava.Java8Streams;public class FlatMap {
+package coreJava.java8Streams;public class FlatMap {
 }

@@ -1,4 +1,4 @@
-package coreJava.Java8Streams.utils;
+package coreJava.java8Streams.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
