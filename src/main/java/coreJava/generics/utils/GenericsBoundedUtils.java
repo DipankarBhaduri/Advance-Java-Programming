@@ -1,4 +1,4 @@
-package coreJava.Generics.utils;
+package coreJava.generics.utils;
 
 import lombok.Getter;
 import lombok.Setter;

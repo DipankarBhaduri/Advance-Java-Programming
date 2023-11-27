@@ -1,6 +1,6 @@
-package coreJava.Generics;
+package coreJava.generics;
 
-import coreJava.Generics.utils.GenericsBoundedUtils;
+import coreJava.generics.utils.GenericsBoundedUtils;
 
 public class GenericsBounded {
     public static void main(String[] args) {

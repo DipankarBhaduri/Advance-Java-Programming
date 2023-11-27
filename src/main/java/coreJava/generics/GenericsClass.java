@@ -1,6 +1,6 @@
-package coreJava.Generics;
+package coreJava.generics;
 
-import coreJava.Generics.utils.GenericsClassUtils;
+import coreJava.generics.utils.GenericsClassUtils;
 
 public class GenericsClass {
     public static void main(String[] args) {
