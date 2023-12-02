@@ -1,0 +1,30 @@
+
+Sure, here are a few priority queue problems that you can solve using Java:
+
+Task Scheduler:
+Design a task scheduler that schedules tasks in such a way that the tasks with higher priority are executed first. You can use a priority queue to manage the tasks based on their priorities.
+
+Merge K Sorted Lists:
+Given K sorted linked lists, merge them into a single sorted linked list. Use a priority queue to efficiently pick the smallest element from all the lists at each step.
+
+Top K Frequent Elements:
+Given an array of integers, find the K most frequent elements. You can use a priority queue to keep track of the top K frequent elements efficiently.
+
+Dijkstra's Shortest Path:
+Implement Dijkstra's algorithm to find the shortest path in a graph with weighted edges. Use a priority queue to select the vertex with the minimum distance at each step.
+
+Kth Largest Element in an Array:
+Find the Kth largest element in an unsorted array. Use a priority queue to maintain the K largest elements encountered so far.
+
+Median of Data Stream:
+Design a data structure that supports the following two operations:
+
+void addNum(int num) - Add a integer number from the data stream to the data structure.
+double findMedian() - Return the median of all elements so far. You can use two priority queues, one for the smaller half and one for the larger half.
+Huffman Coding:
+Implement Huffman coding, a compression algorithm that uses a priority queue to build an optimal binary tree for encoding and decoding.
+
+Interval Scheduling:
+Given a set of intervals, find the maximum number of non-overlapping intervals. You can use a priority queue to select intervals based on their end times.
+
+Remember to consider the time and space complexity of your solutions, and strive for efficient and optimal solutio

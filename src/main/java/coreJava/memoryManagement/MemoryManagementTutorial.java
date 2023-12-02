@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class memoryManagementTutorial {
+public class MemoryManagementTutorial {
     static List<Integer> integerList;
 
     public static void main(String[] args) {
