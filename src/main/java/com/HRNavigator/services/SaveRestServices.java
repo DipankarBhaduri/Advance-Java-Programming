@@ -1,6 +1,7 @@
 package com.HRNavigator.services;
 
 import com.HRNavigator.handlers.RepositoryHandler;
+import com.HRNavigator.models.ModificationLog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,11 +25,30 @@ public class SaveRestServices {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             Object obj = objectMapper.convertValue(object, clazz);
-            repositoryHandler.saveDocument(clazz, obj);
-            return new ResponseEntity<>("Save Successfully", HttpStatus.OK);
+            return saveWithModificationLog(clazz, obj);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>("Failed!! Exception Occurred During Save", HttpStatus.OK);
+        }
+    }
+
+    /**
+     * Saves an object with modification logging. The original and modified objects are recorded in a ModificationLog.
+     *
+     * @param clazz The Class object representing the type of the object to be saved.
+     * @param obj   The object to be saved with modification logging.
+     * @return ResponseEntity indicating the result of the save operation.
+     */
+    private ResponseEntity<String> saveWithModificationLog(Class <?> clazz, Object obj) {
+        if (obj != null) {
+            ModificationLog modificationLog = new ModificationLog();
+            modificationLog.setOriginalObject(obj);
+            modificationLog.setModifiedObject("first time data getting saved");
+            repositoryHandler.saveDocument(ModificationLog.class, modificationLog);
+            repositoryHandler.saveDocument(clazz, obj);
+            return new ResponseEntity<>("Save Successfully", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error Occurred", HttpStatus.BAD_REQUEST);
         }
     }
 }
