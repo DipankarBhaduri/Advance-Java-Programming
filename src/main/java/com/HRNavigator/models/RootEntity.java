@@ -16,4 +16,5 @@ public class RootEntity {
     private String _id;
     private String className;
     private String doneByName;
+    private String srNumber;
 }
