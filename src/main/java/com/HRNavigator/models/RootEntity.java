@@ -14,6 +14,6 @@ public class RootEntity {
 
     @Id
     private String _id;
-    private String _class;
-    private String doneById;
+    private String className;
+    private String doneByName;
 }

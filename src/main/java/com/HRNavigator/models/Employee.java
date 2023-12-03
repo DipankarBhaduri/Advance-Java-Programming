@@ -20,6 +20,6 @@ public class Employee extends RootEntity {
     private String password;
     private Date sqlDate = new Date();
     private String accountStatus = "active";
-    private boolean isEmailVerified;
-    private boolean isPhoneVerified;
+    private boolean emailVerified;
+    private boolean phoneVerified;
 }

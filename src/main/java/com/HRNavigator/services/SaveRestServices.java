@@ -12,15 +12,23 @@ public class SaveRestServices {
 
     @Autowired
     private RepositoryHandler repositoryHandler;
+
+    /**
+     * Processes a save call by converting the provided object to the specified class and saving it to the repository.
+     *
+     * @param clazz  The Class object representing the type to convert the object to.
+     * @param object The object to be converted and saved.
+     * @return ResponseEntity indicating the result of the save operation.
+     */
     public ResponseEntity<String> processSaveCall (Class <?> clazz, Object object) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        // Convert the LinkedHashMap to an instance of the specified class (clazz)
-        Object obj = objectMapper.convertValue(object, clazz);
-
-        // Assuming repositoryHandler is an instance of your repository handling class
-        repositoryHandler.saveDocument(clazz, obj);
-
-        return new ResponseEntity<>("DONE", HttpStatus.OK);
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            Object obj = objectMapper.convertValue(object, clazz);
+            repositoryHandler.saveDocument(clazz, obj);
+            return new ResponseEntity<>("Save Successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Failed!! Exception Occurred During Save", HttpStatus.OK);
+        }
     }
 }

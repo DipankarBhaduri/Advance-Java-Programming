@@ -17,11 +17,24 @@ public class SaveController {
     @Autowired
     private SaveRestServices saveRestServices;
 
+    /**
+     * Saves data based on the provided object. This endpoint is designed to handle
+     * generic data saving for dynamic classes specified in the input object.
+     *
+     * @param object The input object containing information for saving data.
+     *               It is expected to be an instance of LinkedHashMap.
+     *               It should have a "className" property specifying the fully qualified class name.
+     * @return ResponseEntity indicating the result of the save operation.
+     *         If successful, it returns a "DONE" message with HTTP status OK.
+     *         If there are validation or processing errors, appropriate error messages
+     *         along with the corresponding HTTP status codes are returned.
+     */
     @PostMapping("/save")
     public ResponseEntity<String> saveData(@RequestBody Object object) {
         try {
             if (object instanceof LinkedHashMap) {
-                String className = (String) ((LinkedHashMap<?, ?>) object).get("_class");
+                String className = (String) ((LinkedHashMap<?, ?>) object).get("className");
+                className = "com.HRNavigator.models."+className;
                 if (className != null) {
                     Class<?> clazz = Class.forName(className);
                     if (clazz != null) {
