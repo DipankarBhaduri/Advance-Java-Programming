@@ -4,7 +4,7 @@
 
 ## Overview
 
-Advance-Java-Programming is a project that demonstrates advanced Java programming concepts and techniques. This repository contains code samples, examples, and documentation to help developers learn and master Java programming.
+Core-Java-Programming is a project that demonstrates advanced Java programming concepts and techniques. This repository contains code samples, examples, and documentation to help developers learn and master Java programming.
 
 ## Features
 
@@ -28,4 +28,4 @@ To get started with Advance-Java-Programming, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/Advance-Java-Programming.git
+   git clone https://github.com/Core-Java-Programming.git
